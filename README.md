@@ -1,7 +1,42 @@
-# AI_ASK_SAY_POTO
-RGB 값을 16비트 이진값으로 변환하고, 이를 Base64 인코딩된 ASCII 텍스트로 변환합니다. 그런 다음 이 텍스트를 파일에 저장하고, 마이크에서 음성을 인식하여 이를 음성으로 변환합니다. 모든 이러한 작업은 main 함수에서 처리됩니다
-앱은 사용자가 버튼을 클릭하여 사진을 찍을 때까지 카메라 뷰를 표시합니다. 사용자가 사진을 찍으면, 앱은 사진을 Google Cloud Vision API로 전송하여 텍스트 인식을 수행합니다. 인식된 모든 텍스트는 라벨 위젯에 표시되며 "extracted_text.txt"라는 파일에 저장됩니다.
+# Text Recognition and Response App
 
-또한, 인식된 텍스트 중에서 물음표를 포함하는 텍스트가 있는지 확인합니다. 만약 물음표를 포함한 텍스트가 있다면, 임의로 "Yes", "No", "Maybe", "I don't know" 중 하나를 선택하여 라벨 위젯에 표시하고, 이 답변을 음성으로 변환하여 출력합니다. 이 답변은 text_to_speech 함수를 통해 음성 파일로 변환되며, 이 파일은 'output.mp3'라는 이름으로 저장됩니다. 이 mp3 파일은 os.system 명령을 통해 재생됩니다.
+This application uses a camera to capture an image, extracts any text present in the image using the Google Cloud Vision API, and then provides a spoken response to any recognized questions. Additionally, it also includes an example of integrating Arduino for hardware interactions.
 
-이 프로그램은 매우 간단한 인식 및 응답 시스템을 구현한 것이며, 실제로는 텍스트 인식 및 분석, 응답 생성 등에 더 복잡한 로직을 적용할 수 있습니다. 예를 들어, 인식된 텍스트를 자연어 처리 (NLP) 라이브러리를 사용하여 분석하고, 인식된 내용에 따라 다양한 정보를 제공하거나 특정 동작을 수행하도록 프로그램을 확장할 수 있습니다.
+## Prerequisites
+
+- Python 3.7 or higher
+- Kivy
+- google-cloud-vision
+- gTTS
+- SpeechRecognition
+- Arduino
+
+You can install these packages using pip:
+
+```bash
+pip install kivy google-cloud-vision gtts SpeechRecognition
+Arduino should be installed and set up according to the manufacturer's instructions.
+
+Usage
+To run the application, simply execute the main script:
+
+
+python main.py
+When you press the "Take Picture" button, the application will capture an image from your camera, extract any text present in the image, and display the recognized text. If any questions are detected in the text, the application will generate a spoken response.
+
+The application can interact with an Arduino device. The code related to Arduino integration should be written according to the requirements of the specific project and hardware.
+
+License
+This project is licensed under the terms of the MIT license.
+
+
+
+**Please note**: GitHub는 현재로서는 Markdown 미리보기에서 중첩 코드 블록을 제대로 렌더링하지 못하므로, 여기에 표시된 것처럼 중첩된 코드 블록을 사용하지 마세요. 대신, 각 코드 블록을 별도의 섹션으로 분리하거나, 아래와 같이 코드 블록을 인용문 내부에 포함시키는 방법을 사용할 수 있습니다.
+
+```markdown
+> ```
+> pip install kivy google-cloud-vision gtts SpeechRecognition
+> ```
+
+
+
